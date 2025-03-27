@@ -16,6 +16,9 @@ function TOrpn(expression) {
     const precendence = {'+':1, '-':1, '*':2, '/':2}
     let output = []
     let signs = []
+    if (expression[0] === '-') {
+        expression = '0' + expression
+    }
     let tokens = expression.match(/\d+(\.\d+)?|[+\-*/]/g)
     
     for (let token of tokens) {
