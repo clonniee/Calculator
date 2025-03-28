@@ -84,16 +84,25 @@ buttons.addEventListener('click', (event) => {
     }else {
         if (event.target.value === 'AC') {
             result.textContent = result.textContent.slice(0, -1)
+            childs.forEach( (btn) => {
+                btn.disabled = false
+            })
         }else if (event.target.value === 'CE') {
             result.textContent = '0'
-            // console.log(result.textContent)
-        }else if (operator.includes(result.textContent[result.textContent.length - 1])) {
+            childs.forEach( (btn) => {
+                btn.disabled = false
+            })
+            
+        }else if (operator.includes(keyPressed)) {
             if (result.textContent[result.textContent.length - 1] === '.') {
                 alert('complete the digit with zero or numbers')           
             }else if(operator.includes(result.textContent[result.textContent.length - 1])) {
                 alert('Invalid Input! Must enter a digit after operator -_-!')
             }else {
                 result.textContent += keyPressed
+                childs.forEach( (btn) => {
+                    btn.disabled = true
+                })
                 
             }
         }else if (event.target.value === '.') {
@@ -113,6 +122,9 @@ buttons.addEventListener('click', (event) => {
         
         }else {
             result.textContent += keyPressed
+            childs.forEach( (btn) => {
+                btn.disabled = false
+            })
             
         }
     }    
