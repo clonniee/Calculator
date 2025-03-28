@@ -87,7 +87,7 @@ buttons.addEventListener('click', (event) => {
         }else if (event.target.value === 'CE') {
             result.textContent = '0'
             // console.log(result.textContent)
-        }else if (operator.includes(keyPressed)) {
+        }else if (operator.includes(result.textContent[result.textContent.length - 1])) {
             if (result.textContent[result.textContent.length - 1] === '.') {
                 alert('complete the digit with zero or numbers')           
             }else {
